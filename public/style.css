@@ -1,0 +1,65 @@
+body {
+	background-color: #e1e1e1;
+}
+div.container {
+	width: 80%;
+	font-size: 14px;
+	margin-top: 60px;
+}
+div.add-patient-card {
+	max-width: 600px;
+	margin: 0 auto;
+}
+div.pl-3 {
+	padding-left: 30px;
+}
+input#picture,
+input#birth-date {
+	font-size: 14px;
+}
+div.patient-card {
+	max-width: 400px;
+	margin: 0 auto 30px;
+}
+div.patient-card .card-img-top {
+	height: 250px;
+	object-fit: cover;
+	object-position: center;
+}
+div.patient-card div.medical-conditions-wrapper {
+	background-color: #ffffff;
+	padding: 10px;
+}
+div.search-id {
+	max-width: 300px;
+}
+input#search-id {
+	height: 40px;
+}
+button.button-addon2 {
+	height: 37px;
+}
+form.search-form {
+	display: inline-flex;
+}
+div.bottom-row {
+	max-width: 600px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 0;
+}
+/* Custom CSS for animation */
+.alert.slide-down {
+	padding: 0 16px;
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+.alert.slide-down.show {
+	padding: 16px;
+	opacity: 1;
+	max-height: 100px;
+	transition: all 0.3s ease;
+}
