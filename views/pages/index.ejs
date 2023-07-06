@@ -38,6 +38,7 @@
                             id="fname"
                             required
                             minlength="2"
+                            value="<%= patient.firstName; %>"
                     />
                 </div>
                 <div class="mb-3">
@@ -49,6 +50,7 @@
                             id="lname"
                             required
                             minlength="2"
+                            value="<%= patient.lastName; %>"
                     />
                 </div>
 
@@ -61,6 +63,7 @@
                             id="id"
                             pattern="[0-9]{9}" title="Please enter a 9-digit number"
                             required
+                            value="<%= patient.id; %>"
                     />
                 </div>
 
@@ -72,6 +75,7 @@
                             class="form-control"
                             id="birth-date"
                             required
+                            value="<%= patient.birthDate; %>"
                     />
                 </div>
 
@@ -212,9 +216,9 @@
 		}
 
 		// Disable the submit button and show the spinner
-		const submitButton = document.getElementById("submitButton");
+		const submitButton = document.getElementById('submitButton');
 		submitButton.disabled = true;
-		submitButton.querySelector(".spinner-border").classList.remove("d-none");
+		submitButton.querySelector('.spinner-border').classList.remove('d-none');
 		return true;
 	}
 </script>

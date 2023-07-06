@@ -1,3 +1,8 @@
+/**
+ * Project done by Corrine Golan 302276159, and Rafael Ashurov 312054711
+ * Git Repository: https://github.com/RafaelAshurov/CloudComputingCourse-PatientManagmentSystem.git
+ * **/
+require('dotenv').config(); // To use our API keys privet from GitHub
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -20,8 +25,7 @@ app.use(fileUpload());
 app.set('view engine', 'ejs');
 
 /**		Atlas connection    **/
-// uri = 'mongodb+srv://raffyashurov:raffy123@cluster0.yxhlqvk.mongodb.net/hitdb?retryWrites=true&w=majority';
-uri = "mongodb+srv://patientsadmin:patientsadmin123@cluster0.yxhlqvk.mongodb.net/hitdb?retryWrites=true&w=majority";
+uri = process.env.ATLAS_KEY
 mongoose.connect(uri, {
 	useNewUrlParser: true, useUnifiedTopology: true,
 })
@@ -34,7 +38,10 @@ mongoose.connect(uri, {
 
 /**		Routes                **/
 app.get('/', async (req, res) => {
-	res.render('pages/index', {message: ''});
+	res.render('pages/index', {
+		message: '',
+		patient: {firstName:'', lastName:'', id:'', birthDate:''}
+	});
 });
 app.post('/add-patient', (req, res) => PatientController.addPatient(req, res));
 app.get('/show-all-patients', (req, res) => PatientController.showAllPatients(req, res));

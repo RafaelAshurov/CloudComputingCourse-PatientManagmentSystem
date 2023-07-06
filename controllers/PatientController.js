@@ -75,11 +75,13 @@ class PatientController {
 				res.render('pages/index', {
 					status: 'success',
 					message: `Patient added successfully!<br> <a href="/show?id=${patientData.id}" class="btn btn-outline-success mt-3"> GO TO PATIENT PAGE </a>`,
+					patient: {firstName:'', lastName:'', id:'', birthDate:''}
 				});
 			} else {
 				res.render('pages/index', {
 					status: 'danger',
 					message: 'Its not an image of a person',
+					patient: req.body
 				});
 			}
 		} catch (err) {
@@ -141,8 +143,8 @@ class PatientController {
 	 */
 	async getImageTags(imageBase64) {
 		try {
-			const apiKey = 'acc_d488094ad191448';
-			const apiSecret = 'f0bbcfb77196c4bacc8820807ef59eaa';
+			const apiKey = process.env.IMAGGA_API_KEY;
+			const apiSecret = process.env.IMAGGA_API_SECRET;
 
 			// we use FormData because Imagga API requires form data for base64 images
 			const formData = new FormData();
